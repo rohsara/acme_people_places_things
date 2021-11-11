@@ -93,12 +93,14 @@ app.get('/', async(req, res, next)=>{
             
             <button>Create</button>
           </form>
+            
             <ul>
-                ${souvenirs.map( souvenir => html`
-                    <li>
-                        ${souvenir.person.name} purchased a ${souvenir.thing.name} in ${souvenir.place.name}
-                    </li>
-                `)}
+                ${ souvenirs.map( souvenir => {
+                  return `
+                    <li>${ souvenir.person.name } bought a ${ souvenir.thing.name } in ${ souvenir.place.name }</li>
+                  `;
+                })}
+                
             </ul>
         </body>
         </html>
