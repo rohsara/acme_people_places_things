@@ -65,7 +65,7 @@ app.get('/', async(req, res, next)=>{
                       ${ person.name }
                     </option>
                   `;
-                }).join('')
+                })
               }
             </select>
             <select name='placeId'>
@@ -76,7 +76,7 @@ app.get('/', async(req, res, next)=>{
                       ${ place.name }
                     </option>
                   `;
-                }).join('')
+                })
               }
             </select>
             <select name='thingId'>
@@ -87,7 +87,7 @@ app.get('/', async(req, res, next)=>{
                       ${ thing.name }
                     </option>
                   `;
-                }).join('')
+                })
               }
             </select>
             

@@ -30,7 +30,6 @@ const Thing = db.define('thing', {
 })
 
 const Souvenir = db.define('souvenir', {
-
 })
 
 Souvenir.belongsTo(Person);
@@ -48,14 +47,12 @@ const syncAndSeed = async() => {
     const [foo, bar, bazz, quq] = await Promise.all(
         data.things.map( name => Thing.create({name}))
     )
-    
-    console.log('synced and seeded')
-
     await Promise.all([
-        Souvenir.create({ personId: moe.id, placeId: london.id, thingId: foo.id}),
-        Souvenir.create({ personId: moe.id, placeId: nyc.id, thingId: bar.id}),
-        Souvenir.create({ personId: ethyl.id, placeId: nyc.id, thingId: quq.id})
-    ])
+        Souvenir.create({ personId: moe.id, thingId: foo.id, placeId: london.id}),
+        Souvenir.create({ personId: moe.id, thingId: bar.id, placeId: nyc.id}),
+        Souvenir.create({ personId: ethyl.id, thingId: quq.id, placeId: nyc.id}),
+    ]);
+    console.log('synced and seeded');
 }
 
 module.exports = {
